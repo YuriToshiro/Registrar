@@ -1,43 +1,89 @@
 #include "Registrar.h"
 
-void Registrar::addStudent(ifstream &in) // them SV tu file vao mang SV
+void Registrar::addStudent(ifstream &in) // them (tang dan theo MSSV) SV tu file vao mang SV
 {
     while (!in.eof())
     {
         Student s;
         in >> s;
-        mStudents.push_back(s);
+        if (mStudents.empty() || mStudents.back().getID() < s.getID())
+        {
+            mStudents.push_back(s);
+        }
+        else
+        {
+            int i = mStudents.size() - 1;
+            while (i >= 0 && s.getID() < mStudents[i].getID())
+            {
+                i--;
+            }
+            mStudents.emplace(mStudents.begin() + (i + 1), s);
+        }
     }
 }
 
-void Registrar::addCourse(ifstream &in) // them khoa hoc tu file vao mang khoa hoc
+void Registrar::addCourse(ifstream &in) // them (tang dan theo ma KH) khoa hoc tu file vao mang khoa hoc
 {
     while (!in.eof())
     {
         Course c;
         in >> c;
-        mCourses.push_back(c);
+        if (mCourses.empty() || mCourses.back().getID() < c.getID())
+        {
+            mCourses.push_back(c);
+        }
+        else
+        {
+            int i = mCourses.size() - 1;
+            while (i >= 0 && c.getID() < mCourses[i].getID())
+            {
+                i--;
+            }
+            mCourses.emplace(mCourses.begin() + (i + 1), c);
+        }
     }
 }
-Student *Registrar::findStudent(string id) // tim SV theo MSSV
+Student *Registrar::findStudent(string id) // tim SV theo MSSV bang Binary Search
 {
-    for (int i = 0; i < mStudents.size(); i++)
+    int l = 0;
+    int r = mStudents.size() - 1;
+    while (l <= r)
     {
-        if (mStudents[i].getID() == id)
+        int mid = (l + r) / 2;
+        if (mStudents[mid].getID() == id)
         {
-            return &mStudents[i];
+            return &mStudents[mid];
+        }
+        else if (mStudents[mid].getID() > id)
+        {
+            r = mid - 1;
+        }
+        else
+        {
+            l = mid + 1;
         }
     }
     return nullptr;
 }
 
-Course *Registrar::findCourse(string id) // tim khoa hoc theo ma khoa hoc
+Course *Registrar::findCourse(string id) // tim khoa hoc theo ma khoa hoc bang Binary Search
 {
-    for (int i = 0; i < mCourses.size(); i++)
+    int l = 0;
+    int r = mCourses.size() - 1;
+    while (l <= r)
     {
-        if (mCourses[i].getID() == id)
+        int mid = (l + r) / 2;
+        if (mCourses[mid].getID() == id)
         {
-            return &mCourses[i];
+            return &mCourses[mid];
+        }
+        else if (mCourses[mid].getID() > id)
+        {
+            r = mid - 1;
+        }
+        else
+        {
+            l = mid + 1;
         }
     }
     return nullptr;
