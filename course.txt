@@ -1,0 +1,8 @@
+Phuong phap tinh
+MAT0001 T6 9 30
+Ki thuat lap trinh
+CSC0002 T2 7 30
+Mang may tinh
+CSC0003 T5 7 30
+Nhap mon lap trinh
+CSC0001 T2 12 30
