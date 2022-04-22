@@ -23,7 +23,7 @@ Student::~Student()
     // dtor
 }
 
-void Student::registerCourse(string courseID)
+void Student::registerCourse(string courseID) // dang ki mot khoa hoc va them vao lich bieu
 {
     auto it = find(mSchedule.begin(), mSchedule.end(), courseID);
     if (mSchedule.size() < 5 && it == mSchedule.end())
@@ -36,11 +36,11 @@ void Student::registerCourse(string courseID)
     }
 }
 
-istream &operator>>(istream &in, Student &student)
+istream &operator>>(istream &in, Student &student) // nhap thong tin sinh vien
 {
     string s;
     getline(in, s);
-    for (int i = s.size() - 1; i >= 0; i--)
+    for (int i = s.size() - 1; i >= 0; i--) // lay tu cuoi chuoi, cat lay mssv, con lai la ten
     {
         if (s[i] == ' ')
         {
@@ -52,17 +52,17 @@ istream &operator>>(istream &in, Student &student)
     return in;
 }
 
-string Student::getName()
+string Student::getName() // lay ten SV
 {
     return mName;
 }
 
-string Student::getID()
+string Student::getID() // lay MSSV
 {
     return mID;
 }
 
-vector<string> Student::getSchedule()
+vector<string> Student::getSchedule() // lay lich bieu
 {
     return mSchedule;
 }

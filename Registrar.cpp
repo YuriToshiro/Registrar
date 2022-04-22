@@ -1,6 +1,6 @@
 #include "Registrar.h"
 
-void Registrar::addStudent(ifstream &in)
+void Registrar::addStudent(ifstream &in) // them SV tu file vao mang SV
 {
     while (!in.eof())
     {
@@ -10,7 +10,7 @@ void Registrar::addStudent(ifstream &in)
     }
 }
 
-void Registrar::addCourse(ifstream &in)
+void Registrar::addCourse(ifstream &in) // them khoa hoc tu file vao mang khoa hoc
 {
     while (!in.eof())
     {
@@ -19,7 +19,7 @@ void Registrar::addCourse(ifstream &in)
         mCourses.push_back(c);
     }
 }
-Student *Registrar::findStudent(string id)
+Student *Registrar::findStudent(string id) // tim SV theo MSSV
 {
     for (int i = 0; i < mStudents.size(); i++)
     {
@@ -31,7 +31,7 @@ Student *Registrar::findStudent(string id)
     return nullptr;
 }
 
-Course *Registrar::findCourse(string id)
+Course *Registrar::findCourse(string id) // tim khoa hoc theo ma khoa hoc
 {
     for (int i = 0; i < mCourses.size(); i++)
     {
@@ -43,7 +43,7 @@ Course *Registrar::findCourse(string id)
     return nullptr;
 }
 
-void Registrar::enrollment()
+void Registrar::enrollment() // dang ki khoa hoc cho 1 SV
 {
     string id;
     cout << "Nhap MSSV can dang ky khoa hoc: ";
@@ -72,21 +72,21 @@ void Registrar::enrollment()
     }
 }
 
-ostream &operator<<(ostream &out, Student &student)
+ostream &operator<<(ostream &out, Student &student) // Xuat thong tin 1 SV
 {
     out << "Ho va ten: " << student.getName() << endl;
     out << "MSSV: " << student.getID() << endl;
     return out;
 }
 
-ostream &operator<<(ostream &out, Course &course)
+ostream &operator<<(ostream &out, Course &course) // Xuat thong tin 1 khoa hoc
 {
     out << "Ten khoa hoc: " << course.getName() << endl;
     out << "Ma khoa hoc: " << course.getID() << endl;
     return out;
 }
 
-void Registrar::ExportStudents(ofstream &out)
+void Registrar::ExportStudents(ofstream &out) // Xuat danh sach SV ra file .txt
 {
     for (int i = 0; i < mStudents.size(); i++)
     {
@@ -103,7 +103,7 @@ void Registrar::ExportStudents(ofstream &out)
     }
 }
 
-void Registrar::ExportCourses(ofstream &out)
+void Registrar::ExportCourses(ofstream &out) // Xuat danh sach khoa hoc ra file .txt
 {
     for (int i = 0; i < mCourses.size(); i++)
     {

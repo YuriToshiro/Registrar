@@ -26,7 +26,7 @@ Course::~Course()
     // dtor
 }
 
-istream &operator>>(istream &in, Course &course)
+istream &operator>>(istream &in, Course &course) // nhap thong tin khoa hoc
 {
     getline(in, course.mName);
     in >> course.mID >> course.mDate.Date >> course.mDate.hour >> course.mDate.min;
@@ -34,7 +34,7 @@ istream &operator>>(istream &in, Course &course)
     return in;
 }
 
-void Course::addStudent(string id)
+void Course::addStudent(string id) // them mot sinh vien vao danh sach hoc vien
 {
     auto it = find(mRoster.begin(), mRoster.end(), id);
     if (mRoster.size() < 40 && it == mRoster.end())
@@ -47,22 +47,22 @@ void Course::addStudent(string id)
     }
 }
 
-vector<string> Course::getRoster()
+vector<string> Course::getRoster() // lay danh sach hoc vien
 {
     return mRoster;
 }
 
-string Course::getName()
+string Course::getName() // lay ten khoa hoc
 {
     return mName;
 }
 
-string Course::getID()
+string Course::getID() // lay ma khoa hoc
 {
     return mID;
 }
 
-DateTime Course::getDate()
+DateTime Course::getDate() // lay thoi gian hoc khoa hoc trong tuan
 {
     return mDate;
 }

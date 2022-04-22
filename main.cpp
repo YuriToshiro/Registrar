@@ -5,10 +5,24 @@ int main()
     Registrar r;
     // Input
     ifstream in("student.txt");
-    r.addStudent(in);
+    if (!in.fail())
+    {
+        r.addStudent(in); // doc tu file sinh vien
+    }
+    else
+    {
+        cout << "File sinhvien.txt khong ton tai!\n";
+    }
     in.close();
     in.open("course.txt");
-    r.addCourse(in);
+    if (!in.fail())
+    {
+        r.addCourse(in); // doc tu file khoa hoc
+    }
+    else
+    {
+        cout << "File khoahoc.txt khong ton tai!\n";
+    }
     in.close();
 
     // Enrollment
