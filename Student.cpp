@@ -66,3 +66,12 @@ vector<string> Student::getSchedule() // lay lich bieu
 {
     return mSchedule;
 }
+
+void Student::removeCourse(string courseID) // xoa mot khoa hoc khoi lich bieu
+{
+    auto it = find(mSchedule.begin(), mSchedule.end(), courseID);
+    if (it != mSchedule.end())
+    {
+        mSchedule.erase(it);
+    }
+}

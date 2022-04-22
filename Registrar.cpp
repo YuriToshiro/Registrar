@@ -118,3 +118,45 @@ void Registrar::ExportCourses(ofstream &out) // Xuat danh sach khoa hoc ra file 
         out << "------------------------------" << endl;
     }
 }
+
+void Registrar::removeStudent(string id) // Xoa 1 SV khoi danh sach SV
+{
+    if (findStudent(id) == nullptr)
+    {
+        cout << "Khong tim thay sinh vien " << id << endl;
+        return;
+    }
+    for (int i = 0; i < mStudents.size(); i++)
+    {
+        if (mStudents[i].getID() == id)
+        {
+            mStudents.erase(mStudents.begin() + i);
+            break;
+        }
+    }
+    for (int i = 0; i < mCourses.size(); i++)
+    {
+        mCourses[i].removeStudent(id);
+    }
+}
+
+void Registrar::removeCourse(string id) // Xoa 1 khoa hoc khoi danh sach khoa hoc
+{
+    if (findCourse(id) == nullptr)
+    {
+        cout << "Khong tim thay khoa hoc " << id << endl;
+        return;
+    }
+    for (int i = 0; i < mCourses.size(); i++)
+    {
+        if (mCourses[i].getID() == id)
+        {
+            mCourses.erase(mCourses.begin() + i);
+            break;
+        }
+    }
+    for (int i = 0; i < mStudents.size(); i++)
+    {
+        mStudents[i].removeCourse(id);
+    }
+}

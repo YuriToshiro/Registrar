@@ -35,6 +35,7 @@ public:
     string getID();
     vector<string> getRoster();
     DateTime getDate();
+    void removeStudent(string id);
 };
 
 #endif // COURSE_H

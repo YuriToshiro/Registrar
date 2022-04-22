@@ -6,3 +6,7 @@ Mang may tinh
 CSC0003 T5 7 30
 Nhap mon lap trinh
 CSC0001 T2 12 30
+Co so du lieu
+CSC0004 T3 12 30
+Huong doi tuong
+CSC0005 T4 9 25

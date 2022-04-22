@@ -25,6 +25,7 @@ public:
     vector<string> getSchedule();
     string getName();
     string getID();
+    void removeCourse(string courseID);
 };
 
 #endif // STUDENT_H

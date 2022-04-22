@@ -19,6 +19,8 @@ public:
     friend ostream &operator<<(ostream &out, Course &course);
     void ExportStudents(ofstream &out);
     void ExportCourses(ofstream &out);
+    void removeStudent(string id);
+    void removeCourse(string id);
 };
 
 #endif // REGISTRAR_H

@@ -66,3 +66,12 @@ DateTime Course::getDate() // lay thoi gian hoc khoa hoc trong tuan
 {
     return mDate;
 }
+
+void Course::removeStudent(string id) // xoa mot sinh vien khoi danh sach hoc vien
+{
+    auto it = find(mRoster.begin(), mRoster.end(), id);
+    if (it != mRoster.end())
+    {
+        mRoster.erase(it);
+    }
+}
