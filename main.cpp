@@ -70,6 +70,8 @@ int main()
 
     // Enrollment
     int option = 1;
+    int choice = 0;
+    char c;
     ofstream out;
     string id;
     do
@@ -89,7 +91,6 @@ int main()
         switch (option)
         {
         case 1:
-            char c;
             do
             {
                 r.enrollment();
@@ -126,15 +127,35 @@ int main()
             system("cls");
             break;
         case 6:
-            out.open("StudentList.txt");
-            r.ExportStudents(out);
-            out.close();
+            cout << "Chon cach xuat [1]: File, [2]: Console: ";
+            cin >> choice;
+            if (choice == 1)
+            {
+                out.open("studentList.txt");
+                r.ExportStudents(out);
+                out.close();
+            }
+            else
+            {
+                r.PrintStudents();
+            }
+            system("pause");
             system("cls");
             break;
         case 7:
-            out.open("CourseList.txt");
-            r.ExportCourses(out);
-            out.close();
+            cout << "Chon cach xuat [1]: File, [2]: Console: ";
+            cin >> choice;
+            if (choice == 1)
+            {
+                out.open("courseList.txt");
+                r.ExportCourses(out);
+                out.close();
+            }
+            else
+            {
+                r.PrintCourses();
+            }
+            system("pause");
             system("cls");
             break;
         case 0:

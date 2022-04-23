@@ -149,6 +149,39 @@ void Registrar::ExportStudents(ofstream &out) // Xuat danh sach SV ra file .txt
     }
 }
 
+void Registrar::PrintStudents() // Xuat danh sach SV ra man hinh
+{
+    for (int i = 0; i < mStudents.size(); i++)
+    {
+        cout << i + 1 << "." << endl;
+        cout << mStudents[i];
+        cout << "Khoa hoc da dang ky: " << endl;
+        for (int j = 0; j < mStudents[i].getSchedule().size(); j++)
+        {
+            Course *c = findCourse(mStudents[i].getSchedule()[j]);
+            cout << c->getDate().date << "-" << c->getDate().hour << ":" << c->getDate().min << ": ";
+            cout << c->getName() << endl;
+        }
+        cout << "------------------------------" << endl;
+    }
+}
+
+void Registrar::PrintCourses() // Xuat danh sach khoa hoc ra man hinh
+{
+    for (int i = 0; i < mCourses.size(); i++)
+    {
+        cout << i + 1 << "." << endl;
+        cout << mCourses[i];
+        cout << "Danh sach sinh vien dang ky: " << endl;
+        for (int j = 0; j < mCourses[i].getRoster().size(); j++)
+        {
+            Student *s = findStudent(mCourses[i].getRoster()[j]);
+            cout << s->getID() << "-" << s->getName() << endl;
+        }
+        cout << "------------------------------" << endl;
+    }
+}
+
 void Registrar::ExportCourses(ofstream &out) // Xuat danh sach khoa hoc ra file .txt
 {
     for (int i = 0; i < mCourses.size(); i++)

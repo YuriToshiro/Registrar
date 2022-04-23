@@ -18,7 +18,9 @@ public:
     friend ostream &operator<<(ostream &out, Student &student);
     friend ostream &operator<<(ostream &out, Course &course);
     void ExportStudents(ofstream &out);
+    void PrintStudents();
     void ExportCourses(ofstream &out);
+    void PrintCourses();
     void removeStudent(string id);
     void removeCourse(string id);
 };
