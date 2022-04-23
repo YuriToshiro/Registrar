@@ -9,9 +9,9 @@ using namespace std;
 
 struct DateTime
 {
-    string Date;
-    int hour;
-    int min;
+    string date;
+    string hour;
+    string min;
 };
 
 class Course

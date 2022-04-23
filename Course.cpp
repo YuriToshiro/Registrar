@@ -26,10 +26,35 @@ Course::~Course()
     // dtor
 }
 
+// kiem tra thu trong tuan
+bool isDateOfWeek(string Date)
+{
+    vector<string> date = {"T2", "T3", "T4", "T5", "T6", "T7", "CN"};
+    auto it = find(date.begin(), date.end(), Date);
+    if (it != date.end())
+    {
+        return true;
+    }
+    return false;
+}
+
 istream &operator>>(istream &in, Course &course) // nhap thong tin khoa hoc
 {
     getline(in, course.mName);
-    in >> course.mID >> course.mDate.Date >> course.mDate.hour >> course.mDate.min;
+    in >> course.mID;
+    in >> course.mDate.date;
+    if (!isDateOfWeek(course.mDate.date))
+    {
+        course.mDate.date = "NA";
+    }
+    if (in >> course.mDate.hour && atoi(course.mDate.hour.c_str()) < 0 || atoi(course.mDate.hour.c_str()) > 23)
+    {
+        course.mDate.hour = "NA";
+    }
+    if (in >> course.mDate.min && atoi(course.mDate.min.c_str()) < 0 || atoi(course.mDate.min.c_str()) > 59)
+    {
+        course.mDate.min = "NA";
+    }
     in.ignore();
     return in;
 }

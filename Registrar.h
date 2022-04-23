@@ -10,8 +10,8 @@ private:
     vector<Course> mCourses;
 
 public:
-    void addStudent(ifstream &in);
-    void addCourse(ifstream &in);
+    void addStudentFromFile(ifstream &in);
+    void addCourseFromFile(ifstream &in);
     void enrollment();
     Student *findStudent(string id);
     Course *findCourse(string id);

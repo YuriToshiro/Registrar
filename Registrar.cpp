@@ -1,6 +1,6 @@
 #include "Registrar.h"
 
-void Registrar::addStudent(ifstream &in) // them (tang dan theo MSSV) SV tu file vao mang SV
+void Registrar::addStudentFromFile(ifstream &in) // them (tang dan theo MSSV) SV tu file vao mang SV
 {
     while (!in.eof())
     {
@@ -22,7 +22,7 @@ void Registrar::addStudent(ifstream &in) // them (tang dan theo MSSV) SV tu file
     }
 }
 
-void Registrar::addCourse(ifstream &in) // them (tang dan theo ma KH) khoa hoc tu file vao mang khoa hoc
+void Registrar::addCourseFromFile(ifstream &in) // them (tang dan theo ma KH) khoa hoc tu file vao mang khoa hoc
 {
     while (!in.eof())
     {
@@ -138,11 +138,11 @@ void Registrar::ExportStudents(ofstream &out) // Xuat danh sach SV ra file .txt
     {
         out << i + 1 << "." << endl;
         out << mStudents[i];
-        out << "Khoa hoc dang ky: " << endl;
+        out << "Khoa hoc da dang ky: " << endl;
         for (int j = 0; j < mStudents[i].getSchedule().size(); j++)
         {
             Course *c = findCourse(mStudents[i].getSchedule()[j]);
-            out << c->getDate().Date << "-" << c->getDate().hour << ":" << c->getDate().min << ": ";
+            out << c->getDate().date << "-" << c->getDate().hour << ":" << c->getDate().min << ": ";
             out << c->getName() << endl;
         }
         out << "------------------------------" << endl;
