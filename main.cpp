@@ -1,4 +1,5 @@
 #include "Registrar.h"
+#include <iomanip>
 
 void findStudByID(string id, Registrar &r)
 {
@@ -45,6 +46,7 @@ void findCourseByID(string id, Registrar &r)
 
 int main()
 {
+    system("color 70");
     Registrar r;
     // Input
     ifstream in("student.txt");
@@ -76,16 +78,16 @@ int main()
     string id;
     do
     {
-        cout << "******************************" << endl;
-        cout << "*1. Dang ky khoa hoc         *" << endl;
-        cout << "*2. Xoa mot SV khoi he thong *" << endl;
-        cout << "*3. Xoa mot KH khoi he thong *" << endl;
-        cout << "*4. Tim 1 SV theo MSSV       *" << endl;
-        cout << "*5. Tim 1 KH theo ma KH      *" << endl;
-        cout << "*6. Xuat danh sach sinh vien *" << endl;
-        cout << "*7. Xuat danh sach khoa hoc  *" << endl;
-        cout << "*0. Ket thuc                 *" << endl;
-        cout << "******************************" << endl;
+        cout << setw(85) << "***************************************************" << endl;
+        cout << setw(85) << "*           1. Dang ky khoa hoc                   *" << endl;
+        cout << setw(85) << "*           2. Xoa mot SV khoi he thong           *" << endl;
+        cout << setw(85) << "*           3. Xoa mot KH khoi he thong           *" << endl;
+        cout << setw(85) << "*           4. Tim 1 SV theo MSSV                 *" << endl;
+        cout << setw(85) << "*           5. Tim 1 KH theo ma KH                *" << endl;
+        cout << setw(85) << "*           6. Xuat danh sach sinh vien           *" << endl;
+        cout << setw(85) << "*           7. Xuat danh sach khoa hoc            *" << endl;
+        cout << setw(85) << "*           0. Ket thuc                           *" << endl;
+        cout << setw(85) << "***************************************************" << endl;
         cout << "Nhap lua chon: ";
         cin >> option;
         switch (option)
