@@ -4,4 +4,12 @@
 1. [*Pham Vo Hai Dang*](https://www.facebook.com/pvhd.me)
 2. [*Ly Thanh Nam*](https://www.facebook.com/profile.php?id=100014062779380)
 3. [*Truong Cao Hoang Gia*](https://facebook.com/nhatthien.truonghoang)
-4. ##### **24/10/2022**
+```c++
+while(!Success)
+{
+  TryAgain()
+  if(Dead)
+    break;
+}
+```
+##### **-24/04/2022-**
