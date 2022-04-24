@@ -106,12 +106,14 @@ int main()
             cout << "Nhap MSSV can xoa: ";
             cin >> id;
             r.removeStudent(id);
+            system("pause");
             system("cls");
             break;
         case 3:
             cout << "Nhap ma khoa hoc can xoa: ";
             cin >> id;
             r.removeCourse(id);
+            system("pause");
             system("cls");
             break;
         case 4:
